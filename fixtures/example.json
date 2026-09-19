@@ -1,0 +1,6 @@
+{
+  "transaction_ref": "TX-DEMO",
+  "account_token": "ACCOUNT-A",
+  "decision": "slow_queue",
+  "rule_revision": 5
+}

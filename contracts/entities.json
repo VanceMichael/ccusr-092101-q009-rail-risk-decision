@@ -1,0 +1,19 @@
+{
+  "schema_version": "1",
+  "domain": "铁路异常购票分级处置引擎",
+  "required_fields": [
+    "transaction_ref",
+    "account_token",
+    "payer_token",
+    "device_token",
+    "decision",
+    "rule_revision"
+  ],
+  "time_format": "ISO 8601 with offset",
+  "sample": {
+    "transaction_ref": "TX-DEMO",
+    "account_token": "ACCOUNT-A",
+    "decision": "slow_queue",
+    "rule_revision": 5
+  }
+}
