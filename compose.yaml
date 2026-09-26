@@ -1,14 +1,33 @@
 
 services:
-  api:
+  engine:
     build: .
     environment:
       PORT: "8080"
       DATABASE_PATH: /data/app.sqlite3
+      INTERNAL_TOKEN: "${INTERNAL_TOKEN:-}"
+      SERVICE_TOKEN: "${SERVICE_TOKEN:-dev-engine-token}"
     ports:
-      - "${APP_PORT:-8080}:8080"
+      - "${ENGINE_PORT:-8080}:8080"
     volumes:
-      - app-data:/data
+      - engine-data:/data
+
+  appeal:
+    build: ./appeal
+    depends_on:
+      - engine
+    environment:
+      PORT: "8090"
+      APPEAL_DATABASE_PATH: /data/appeal.sqlite3
+      ENGINE_BASE_URL: "http://engine:8080"
+      ENGINE_SERVICE_TOKEN: "${SERVICE_TOKEN:-dev-engine-token}"
+      ADMIN_TOKEN: "${ADMIN_TOKEN:-dev-admin-token}"
+      NOTIFIER_MODE: "${NOTIFIER_MODE:-fake}"
+    ports:
+      - "${APPEAL_PORT:-8090}:8090"
+    volumes:
+      - appeal-data:/data
 
 volumes:
-  app-data:
+  engine-data:
+  appeal-data:

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1",
+  "service": "rail-ticket-appeal",
+  "domain": "铁路购票申诉与解限后端",
+  "invariants": [
+    "仅保存外部风控决定的不可变引用 decision_ref 与可公开原因类别 reason_public",
+    "不保存、不展示模型阈值、评分或内部规则版本",
+    "案件事件、复核意见、裁决均为追加写/不可修改删除",
+    "对原执行节点的每条指令携带幂等键，网络重试不重复变更状态",
+    "关案必须证明：裁决意图、各渠道实际状态、通知结果三者一致"
+  ],
+  "roles": ["intake_agent", "reviewer", "supervisor"],
+  "case_status": [
+    "intake",
+    "supplement_pending",
+    "in_review",
+    "reviewed",
+    "resolved",
+    "closed",
+    "merged"
+  ],
+  "adjudication": ["overturn", "narrow", "maintain"],
+  "channels": ["app", "web", "window", "agent_terminal"],
+  "time_format": "ISO 8601 with offset",
+  "sample": {
+    "case_ref": "C-1a2b3c4d5e6f",
+    "decision_ref": "RD-2026-0901",
+    "reason_public": "proxy_purchase_suspected",
+    "status": "intake"
+  }
+}

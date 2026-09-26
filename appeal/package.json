@@ -1,7 +1,8 @@
 {
-  "name": "rail-risk-decision",
+  "name": "rail-ticket-appeal",
   "version": "0.1.0",
   "private": true,
+  "description": "铁路购票申诉与解限后端（独立服务，仅引用外部风控决定）",
   "scripts": {
     "start": "node src/server.js",
     "migrate": "node scripts/migrate.js",
