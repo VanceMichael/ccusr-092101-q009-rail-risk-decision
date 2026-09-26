@@ -1,0 +1,25 @@
+{
+  "risk_decision": {
+    "decision_ref": "RD-DEMO-1",
+    "source": "risk-engine",
+    "source_seq": "2026-09-26-0001",
+    "account_token": "ACCOUNT-A",
+    "passenger_token": "PAX-1",
+    "payer_token": "PAYER-1",
+    "device_token": "DEV-1",
+    "public_reason_category": "proxy_purchase_family",
+    "restriction_scope": { "nodes": ["web", "app"] },
+    "rule_revision": 5,
+    "decided_at": "2026-09-26T07:00:00+08:00"
+  },
+  "appeal": {
+    "decision_ref": "RD-DEMO-1",
+    "appellant_token": "APPELLANT-1"
+  },
+  "temp_release": {
+    "passenger_token": "PAX-1",
+    "channel": "web",
+    "valid_from": "2026-09-26T08:00:00+08:00",
+    "valid_until": "2026-09-26T20:00:00+08:00"
+  }
+}

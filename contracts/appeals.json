@@ -1,0 +1,42 @@
+{
+  "schema_version": "1",
+  "domain": "铁路购票申诉与解限后端",
+  "required_fields": {
+    "risk_decision": [
+      "decision_ref",
+      "source",
+      "source_seq",
+      "account_token",
+      "public_reason_category",
+      "restriction_scope",
+      "rule_revision",
+      "decided_at"
+    ],
+    "appeal": ["decision_ref", "appellant_token"],
+    "evidence": ["kind", "storage_ref", "scope", "retention_until", "submitted_by"],
+    "temp_release": ["passenger_token", "channel", "valid_from", "valid_until"],
+    "receipt": ["node_id", "result"]
+  },
+  "public_reason_categories": [
+    "proxy_purchase_family",
+    "payment_mismatch",
+    "device_cluster",
+    "velocity_anomaly",
+    "identity_uncertain"
+  ],
+  "roles": ["intake_officer", "reviewer", "adjudicator", "supervisor"],
+  "case_status": [
+    "opened",
+    "accepted",
+    "evidence_pending",
+    "under_review",
+    "executing",
+    "merged",
+    "closed"
+  ],
+  "adjudication_outcomes": ["maintain", "narrow", "revoke"],
+  "command_effects": ["maintain", "narrow", "revoke", "temp_release", "temp_release_expire"],
+  "never_exposed": ["rule_revision", "payload_hash"],
+  "time_format": "ISO 8601 with offset",
+  "sla_hours": 72
+}
